@@ -1,0 +1,35 @@
+{
+    "version": "0.18.1-win.1",
+    "description": "Unofficial, unsigned x64 portable build of RNP (OpenPGP) from the r404r/rnp fork. Not an official rnpgp/rnp release.",
+    "homepage": "https://github.com/r404r/rnp",
+    "license": "BSD-2-Clause",
+    "notes": [
+        "This is an unofficial, unsigned build. Windows SmartScreen may show a warning on first run.",
+        "The default keyring is %USERPROFILE%\\.rnp (or %HOME%\\.rnp if HOME is set)."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/r404r/rnp/releases/download/v0.18.1-win.1/rnp-windows-x64-portable.zip",
+            "hash": "77a10e8f47a184c2fdabd96f9dedb56f171fedeebe22ebd1a3a7dcd96666f791"
+        }
+    },
+    "extract_dir": "rnp-windows-x64-portable",
+    "bin": [
+        "rnp.exe",
+        "rnpkeys.exe"
+    ],
+    "checkver": {
+        "url": "https://github.com/r404r/rnp/releases",
+        "regex": "tag/v([\\d.]+-win\\.\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/r404r/rnp/releases/download/v$version/rnp-windows-x64-portable.zip",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}
